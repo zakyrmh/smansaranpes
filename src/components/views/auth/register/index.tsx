@@ -46,10 +46,18 @@ const RegisterView = () => {
     }
   };
 
+  const dismissError = () => {
+    setError("");
+  };
+
   return (
     <>
       {error && (
-        <Alert color="red" className="fixed max-w-fit m-3">
+        <Alert
+          color="red"
+          onClose={dismissError}
+          className="fixed z-50 max-w-fit m-3"
+        >
           {error}
         </Alert>
       )}
@@ -126,8 +134,13 @@ const RegisterView = () => {
                   }}
                 />
               </div>
-              <Button type="submit" className="mt-6" fullWidth>
-                {isLoading ? "Loading..." : "Sign Up"}
+              <Button
+                type="submit"
+                className="flex justify-center mt-6"
+                fullWidth
+                loading={isLoading}
+              >
+                Sign Up
               </Button>
               <Typography color="gray" className="mt-4 text-center font-normal">
                 Already have an account?{" "}
