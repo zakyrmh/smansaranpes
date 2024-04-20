@@ -65,7 +65,7 @@ const RegisterView = () => {
         <Card className="my-6">
           <CardBody>
             <Typography variant="h4" color="blue-gray">
-              Sign Up
+              Sign In
             </Typography>
             <Typography color="gray" className="mt-1 font-normal">
               Nice to meet you! Enter your details to register.
@@ -145,7 +145,7 @@ const RegisterView = () => {
               <Typography color="gray" className="mt-4 text-center font-normal">
                 Already have an account?{" "}
                 <Link href="/auth/login" className="font-medium text-gray-900">
-                  Sign In
+                  Log In
                 </Link>
               </Typography>
             </form>
