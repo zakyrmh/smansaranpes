@@ -28,7 +28,7 @@ const Layout = () => {
         className="p-1 font-normal"
       >
         <a href="#" className="flex items-center">
-          Pages
+          Home
         </a>
       </Typography>
       <Typography
@@ -38,7 +38,7 @@ const Layout = () => {
         className="p-1 font-normal"
       >
         <a href="#" className="flex items-center">
-          Account
+          Blog
         </a>
       </Typography>
       <Typography
@@ -48,7 +48,7 @@ const Layout = () => {
         className="p-1 font-normal"
       >
         <a href="#" className="flex items-center">
-          Blocks
+          Contact
         </a>
       </Typography>
       <Typography
@@ -58,7 +58,7 @@ const Layout = () => {
         className="p-1 font-normal"
       >
         <a href="#" className="flex items-center">
-          Docs
+          Gallery
         </a>
       </Typography>
     </ul>
@@ -72,7 +72,7 @@ const Layout = () => {
           href="#"
           className="mr-4 cursor-pointer py-1.5 font-medium"
         >
-          Material Tailwind
+          SMAN 1 Ranah Pesisir
         </Typography>
         <div className="flex items-center gap-4">
           <div className="mr-4 hidden lg:block">{navList}</div>
