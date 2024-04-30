@@ -8,9 +8,11 @@ import {
   Card,
 } from "@material-tailwind/react";
 import Link from "next/link";
+import { signOut, useSession } from "next-auth/react";
 
 const Layout = () => {
   const [openNav, setOpenNav] = React.useState(false);
+  const { data } = useSession();
 
   React.useEffect(() => {
     window.addEventListener(
@@ -77,16 +79,34 @@ const Layout = () => {
         <div className="flex items-center gap-4">
           <div className="mr-4 hidden lg:block">{navList}</div>
           <div className="flex items-center gap-x-1">
-            <Button variant="text" size="sm" className="hidden lg:inline-block">
-              <Link href="/auth/login">Log in</Link>
-            </Button>
-            <Button
-              variant="gradient"
-              size="sm"
-              className="hidden lg:inline-block"
-            >
-              <Link href="/auth/register">Sign in</Link>
-            </Button>
+            {data ? (
+              <Button
+                type="button"
+                onClick={() => signOut()}
+                variant="text"
+                size="sm"
+                className="hidden lg:inline-block"
+              >
+                Log Out
+              </Button>
+            ) : (
+              <>
+                <Button
+                  variant="text"
+                  size="sm"
+                  className="hidden lg:inline-block"
+                >
+                  <Link href="/auth/login">Log in</Link>
+                </Button>
+                <Button
+                  variant="gradient"
+                  size="sm"
+                  className="hidden lg:inline-block"
+                >
+                  <Link href="/auth/register">Sign in</Link>
+                </Button>
+              </>
+            )}
           </div>
           <IconButton
             variant="text"
@@ -130,12 +150,27 @@ const Layout = () => {
       <MobileNav open={openNav}>
         {navList}
         <div className="flex items-center gap-x-1">
-          <Button fullWidth variant="text" size="sm" className="">
-            <Link href="/auth/login">Log In</Link>
-          </Button>
-          <Button fullWidth variant="gradient" size="sm" className="">
-            <Link href="/auth/register">Sign in</Link>
-          </Button>
+          {data ? (
+            <Button
+              type="button"
+              onClick={() => signOut()}
+              fullWidth
+              variant="text"
+              size="sm"
+              className=""
+            >
+              Log Out
+            </Button>
+          ) : (
+            <>
+              <Button fullWidth variant="text" size="sm" className="">
+                <Link href="/auth/login">Log In</Link>
+              </Button>
+              <Button fullWidth variant="gradient" size="sm" className="">
+                <Link href="/auth/register">Sign in</Link>
+              </Button>
+            </>
+          )}
         </div>
       </MobileNav>
     </Navbar>
